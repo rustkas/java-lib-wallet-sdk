@@ -14,7 +14,6 @@ public class WalletApiException extends WalletSdkException {
     public static final String ERROR_CODE_INVALID_PASSWORD = "invalid_password";
     public static final String ERROR_CODE_INVALID_IDENTITY = "invalid_identity";
     public static final String ERROR_CODE_IDENTITY_REQUIRED = "identity_required";
-    public static final String ERROR_CODE_USER_NOT_FOUND = "user_not_found";
     public static final String ERROR_CODE_NOT_FOUND = "not_found";
     public static final String ERROR_CODE_USER_ALREADY_EXISTS = "user_already_exists";
     public static final String ERROR_CODE_PASSWORD_TOO_SHORT = "password_too_short";
@@ -129,12 +128,6 @@ public class WalletApiException extends WalletSdkException {
             && this.errorCode.equals(WalletApiException.ERROR_CODE_IDENTITY_REQUIRED);
     }
 
-    public Boolean isUserNotFoundError() {
-        return
-               this.errorCode != null
-            && this.errorCode.equals(WalletApiException.ERROR_CODE_USER_NOT_FOUND);
-    }
-
     public Boolean isNotFoundError() {
         return
                this.errorCode != null
@@ -153,7 +146,7 @@ public class WalletApiException extends WalletSdkException {
             && this.errorCode.equals(WalletApiException.ERROR_CODE_PASSWORD_TOO_SHORT);
     }
 
-    public Boolean isPasswordToRiskyError() {
+    public Boolean isPasswordTooRiskyError() {
         return
                this.errorCode != null
             && this.errorCode.equals(WalletApiException.ERROR_CODE_PASSWORD_TOO_RISKY);
