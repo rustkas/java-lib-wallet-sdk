@@ -3,6 +3,7 @@ package com.paysera.sdk.wallet.clients;
 import com.paysera.sdk.wallet.entities.*;
 import com.paysera.sdk.wallet.entities.card.Card;
 import com.paysera.sdk.wallet.entities.client.Client;
+import com.paysera.sdk.wallet.entities.confirmations.Confirmation;
 import com.paysera.sdk.wallet.entities.locations.Location;
 import com.paysera.sdk.wallet.entities.locations.LocationCategory;
 import com.paysera.sdk.wallet.entities.requests.*;
@@ -351,4 +352,29 @@ public interface WalletApiClient {
 
     @POST("jwt/tokens")
     Call<JWTTokenResponse> getJWTToken(@Body JWTScope scope);
+
+    @GET("confirmations/me")
+    Call<MetadataAwareResponse<Confirmation>> getConfirmations(
+        @Query("limit") Integer limit,
+        @Query("offset") Integer offset,
+        @Query("order_by") String orderBy,
+        @Query("order_direction") String orderDirection,
+        @Query("status") String status
+    );
+
+    @GET("confirmations/{identifier}")
+    Call<Confirmation> getConfirmation(
+        @Path("identifier") String identifier
+    );
+
+    @GET("confirmations/{identifier}/confirm")
+    Call<Confirmation> acceptConfirmation(
+        @Path("identifier") String identifier
+    );
+
+    @GET("confirmations/{identifier}/reject")
+    Call<Confirmation> rejectConfirmation(
+        @Path("identifier") String identifier
+    );
+
 }
