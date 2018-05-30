@@ -54,7 +54,7 @@ public class MetadataAwareResponseDeserializer implements JsonDeserializer<Metad
                     List<IdentificationRequest> identificationRequests = createIdentificationRequests(context, entry.getValue().getAsJsonArray());
                     metadataAwareResponse.setItems(identificationRequests);
                     break;
-                case "items":
+                case "confirmations":
                     List<Confirmation> confirmations = createConfirmations(context, entry.getValue().getAsJsonArray());
                     metadataAwareResponse.setItems(confirmations);
                     break;
