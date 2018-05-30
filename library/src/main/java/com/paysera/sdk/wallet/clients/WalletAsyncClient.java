@@ -488,5 +488,4 @@ public class WalletAsyncClient extends BaseAsyncClient {
     public Task<Void> generateCode(GenerateCodeRequest generateCodeRequest) {
         return this.execute(this.walletApiClient.generateCode(generateCodeRequest));
     }
-
 }
