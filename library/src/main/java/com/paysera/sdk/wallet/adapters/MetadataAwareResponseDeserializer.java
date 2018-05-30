@@ -58,6 +58,11 @@ public class MetadataAwareResponseDeserializer implements JsonDeserializer<Metad
                     List<Confirmation> confirmations = createConfirmations(context, entry.getValue().getAsJsonArray());
                     metadataAwareResponse.setItems(confirmations);
                     break;
+            }
+        }
+
+        return metadataAwareResponse;
+    }
 
     private List<Transaction> createTransactions(JsonDeserializationContext context, JsonArray entries) {
         List<Transaction> transactions = new ArrayList<>();
