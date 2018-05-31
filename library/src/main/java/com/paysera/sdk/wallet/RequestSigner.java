@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.HttpUrl;
+import okhttp3.Request;
 import org.apache.commons.codec.binary.Base64;
 
 public class RequestSigner {
@@ -24,11 +25,7 @@ public class RequestSigner {
     public String generateSignature(
         String macId,
         String macSecret,
-        String host,
-        Integer port,
-        String method,
-        String path,
-        String query,
+        Request originalRequest,
         byte[] body,
         String timestamp,
         Map<String, String> parameters
@@ -36,11 +33,17 @@ public class RequestSigner {
         String nonce = this.nonceGenerator.generate();
         String ext = generateExt(body, parameters);
 
+        String host = originalRequest.url().host();
+        Integer port = originalRequest.url().port();
+        String method = originalRequest.method();
+        String path = originalRequest.url().encodedPath();
+        String query = originalRequest.url().encodedQuery();
+
         if (query != null && !query.isEmpty()) {
             HttpUrl url = (new HttpUrl.Builder())
                 .scheme("https")
                 .host(host)
-                .query(query)
+                .encodedQuery(query)
                 .build();
 
             path += "?" + url.encodedQuery();

@@ -77,11 +77,7 @@ public class HttpClientFactory {
                     String signature = requestSigner.generateSignature(
                         credentials.getAccessToken(),
                         credentials.getMacKey(),
-                        original.url().host(),
-                        original.url().port(),
-                        original.method(),
-                        original.url().encodedPath(),
-                        original.url().query(),
+                        original,
                         body,
                         timestamp,
                         parameters
