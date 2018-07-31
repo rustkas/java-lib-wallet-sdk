@@ -385,4 +385,7 @@ public interface WalletApiClient {
         @Path("transactionKey") String transactionKey,
         @Body ReserveTransactionRequest reserveTransactionRequest
     );
+
+    @POST("auth-token/token")
+    Call<AuthTokenResponse> createAuthToken();
 }

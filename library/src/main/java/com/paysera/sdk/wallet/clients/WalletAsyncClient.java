@@ -104,6 +104,10 @@ public class WalletAsyncClient extends BaseAsyncClient {
             });
     }
 
+    public Task<AuthTokenResponse> createAuthToken() {
+        return execute(walletApiClient.createAuthToken());
+    }
+
     public Task<Wallet> getWallet(WalletFilter walletFilter) {
         return execute(walletApiClient.getWallet(
             walletFilter.getAccountNumber(),
