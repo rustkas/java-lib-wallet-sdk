@@ -39,6 +39,7 @@ public class Transfer {
     @JsonAdapter(TransferNotificationAdapter.class)
     private List<TransferNotification> notifications;
     private Boolean allowedToCancel;
+    private Boolean preservePurpose;
 
     public List<TransferNotification> getNotifications() {
         return notifications;
@@ -190,5 +191,13 @@ public class Transfer {
 
     public void setAllowedToCancel(Boolean allowedToCancel) {
         this.allowedToCancel = allowedToCancel;
+    }
+
+    public Boolean getPreservePurpose() {
+        return preservePurpose;
+    }
+
+    public void setPreservePurpose(Boolean preservePurpose) {
+        this.preservePurpose = preservePurpose;
     }
 }
