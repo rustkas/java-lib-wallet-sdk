@@ -410,6 +410,10 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.createTransfer(transfer));
     }
 
+    public Task<Transfer> simulateTransfer(Transfer transfer) {
+        return this.execute(this.walletApiClient.simulateTransfer(transfer));
+    }
+
     public Task<Transfer> reserveTransfer(Integer transferId) {
         return this.execute(this.walletApiClient.reserveTransferById(transferId));
     }
