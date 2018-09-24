@@ -325,22 +325,22 @@ public interface WalletApiClient {
 
     @PUT("transfers/{transferId}/reserve")
     Call<Transfer> reserveTransferById(
-        @Path("transferId") Integer transferId
+        @Path("transferId") String transferId
     );
 
     @PUT("transfers/{transferId}/sign")
     Call<Transfer> signTransferById(
-        @Path("transferId") Integer transferId
+        @Path("transferId") String transferId
     );
 
     @DELETE("transfers/{transferId}")
     Call<Transfer> deleteTransferById(
-        @Path("transferId") Integer transferId
+        @Path("transferId") String transferId
     );
 
     @GET("transfers/{transferId}")
     Call<Transfer> getTransferById(
-        @Path("transferId") Integer transferId
+        @Path("transferId") String transferId
     );
 
     @GET("transfers")

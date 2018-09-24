@@ -6,6 +6,7 @@ public class TransferBeneficiaryBankAccount {
     private String bankCode;
     private String bankTitle;
     private String sortCode;
+    private String accountNumber;
     private String countryCode;
 
     public String getBic() {
@@ -54,5 +55,13 @@ public class TransferBeneficiaryBankAccount {
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }
