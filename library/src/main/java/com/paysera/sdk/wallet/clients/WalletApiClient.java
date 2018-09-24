@@ -313,12 +313,12 @@ public interface WalletApiClient {
     Call<Void> unregisterSubscribers();
 
     // Transfers endpoint
-    @POST("simulated-transfers")
+    @POST("transfers")
     Call<Transfer> createTransfer(
         @Body Transfer transfer
     );
 
-    @POST("transfers")
+    @POST("simulated-transfers")
     Call<Transfer> simulateTransfer(
         @Body Transfer transfer
     );

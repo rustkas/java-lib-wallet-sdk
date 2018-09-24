@@ -14,7 +14,7 @@ public class Transfer {
     public static final String URGENCY_STANDARD = "standard";
     public static final String URGENCY_URGENT = "urgent";
 
-    private Integer id;
+    private String id;
     private String status;
     @JsonAdapter(MoneyAdapter.class)
     private Money amount;
@@ -49,11 +49,11 @@ public class Transfer {
         this.notifications = notifications;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
