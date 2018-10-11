@@ -125,6 +125,8 @@ public interface WalletApiClient {
     @PUT("user/{userId}/avatar")
     Call<Void> setUserAvatar(@Path("userId") Integer userId, @Body byte[] bytes);
 
+    @DELETE("user/{userId}/avatar")
+    Call<Void> deleteUserAvatar(@Path("userId") Integer userId);
 
     @PUT("user/me/position")
     Call<UserPosition> provideUserPosition(

@@ -225,6 +225,10 @@ public class WalletAsyncClient extends BaseAsyncClient {
         ));
     }
 
+    public Task<Void> deleteUserAvatar(Integer userId) {
+        return this.execute(this.walletApiClient.deleteUserAvatar(userId));
+    }
+
     public Task<UserPosition> provideUserPosition(
         float lat,
         float lng,
