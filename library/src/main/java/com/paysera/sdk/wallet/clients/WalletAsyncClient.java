@@ -385,6 +385,30 @@ public class WalletAsyncClient extends BaseAsyncClient {
         ));
     }
 
+    public Task<ContactBook> createContactBookForUser(Integer userId) {
+        return this.execute(this.walletApiClient.createContactBookForUser(userId));
+    }
+
+    public Task<ContactBook> createContactBookForCurrentUser() {
+        return this.execute(this.walletApiClient.createContactBookForCurrentUser());
+    }
+
+    public Task<Void> appendContactsToContactBook(
+        Integer contactBookId,
+        List<String> emails,
+        List<String> phones,
+        List<String> emailHashes,
+        List<String> phoneHashes
+    ) {
+        AppendContactsToContactBookRequest request = new AppendContactsToContactBookRequest();
+        request.setEmails(emails);
+        request.setPhones(phones);
+        request.setEmailHashes(emailHashes);
+        request.setPhoneHashes(phoneHashes);
+
+        return this.execute(this.walletApiClient.appendContactsToContactBook(contactBookId, request));
+    }
+
     public Task<Void> removeFromContactBook(
         Integer contactBookId,
         List<String> emailList,
@@ -397,7 +421,8 @@ public class WalletAsyncClient extends BaseAsyncClient {
             StringHelper.listToString(emailList, ","),
             StringHelper.listToString(phoneList, ","),
             StringHelper.listToString(emailHashList, ","),
-            StringHelper.listToString(phoneHashList, ",")));
+            StringHelper.listToString(phoneHashList, ","))
+        );
     }
 
     public Task<Void> unregisterSubscriber(

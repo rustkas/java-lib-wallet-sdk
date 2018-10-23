@@ -64,6 +64,12 @@ public interface WalletApiClient {
         @Body UserRegistrationRequest userRegistrationRequestRegistration
     );
 
+    @POST("user/me/contact-book")
+    Call<ContactBook> createContactBookForCurrentUser();
+
+    @POST("user/{userId}/contact-book")
+    Call<ContactBook> createContactBookForUser(Integer userId);
+
     @POST("user/password/reset")
     Call<User> requestResetPassword(
         @Body ResetPasswordRequest resetPasswordRequest
@@ -296,6 +302,12 @@ public interface WalletApiClient {
     );
 
     // Contact book endpoint
+    @PUT("contact-book/{contactBookId}/append")
+    Call<Void> appendContactsToContactBook(
+        @Path("contactBookId") Integer contactBookId,
+        @Body AppendContactsToContactBookRequest request
+    );
+
     @DELETE("contact-book/{contactBookId}/contacts")
     Call<Void> removeFromContactBook(
         @Path("contactBookId") Integer contactBookId,
