@@ -19,6 +19,7 @@ public class AccountInformation {
     private String ownerDisplayName;
     private String description;
     private String ownerTitle;
+    private String ownerType;
     private Integer userId;
     private String type;
     private List<String> ibans = new ArrayList<>();
@@ -77,5 +78,13 @@ public class AccountInformation {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getOwnerType() {
+        return ownerType;
+    }
+
+    public void setOwnerType(String ownerType) {
+        this.ownerType = ownerType;
     }
 }
