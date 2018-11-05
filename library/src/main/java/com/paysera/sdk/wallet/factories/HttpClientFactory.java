@@ -89,16 +89,16 @@ public class HttpClientFactory {
                         .build();
 
                     return chain.proceed(request);
-                } catch (NoSuchAlgorithmException | InvalidKeyException exception) {
+                } catch (Exception exception) {
                     if (logger != null) {
                         StringWriter errors = new StringWriter();
                         exception.printStackTrace(new PrintWriter(errors));
 
                         logger.severe(errors.toString());
                     }
-                }
 
-                return chain.proceed(original);
+                    throw new IOException("An error occurred while signing the request", exception);
+                }
             }
         });
 

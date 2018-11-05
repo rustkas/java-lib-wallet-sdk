@@ -1,17 +1,17 @@
 package com.paysera.sdk.wallet;
 
 import com.paysera.sdk.wallet.helpers.OkHTTPQueryStringConverter;
-import java.io.IOException;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import org.apache.commons.codec.binary.Base64;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
-import org.apache.commons.codec.binary.Base64;
 
 public class RequestSigner {
     private NonceGeneratorInterface nonceGenerator;
@@ -29,7 +29,7 @@ public class RequestSigner {
         byte[] body,
         String timestamp,
         Map<String, String> parameters
-    ) throws NoSuchAlgorithmException, InvalidKeyException, IOException {
+    ) throws NoSuchAlgorithmException, InvalidKeyException {
         String nonce = this.nonceGenerator.generate();
         String ext = generateExt(body, parameters);
 
