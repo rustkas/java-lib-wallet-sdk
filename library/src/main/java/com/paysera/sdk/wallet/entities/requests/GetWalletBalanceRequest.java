@@ -10,6 +10,11 @@ public class GetWalletBalanceRequest {
         this.walletId = walletId;
     }
 
+    public GetWalletBalanceRequest(int walletId, boolean showHistoricalCurrencies) {
+        this.walletId = walletId;
+        this.showHistoricalCurrencies = showHistoricalCurrencies;
+    }
+
     public GetWalletBalanceRequest(int walletId, String convertTo) {
         this.walletId = walletId;
         this.convertTo = convertTo;
