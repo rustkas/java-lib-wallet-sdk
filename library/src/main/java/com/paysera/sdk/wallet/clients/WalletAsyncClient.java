@@ -53,6 +53,20 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.getServerInformation());
     }
 
+    public Task<CurrencyConversionCalculation> calculateCurrencyConversion(CurrencyConversionCalculation request) {
+        return this.execute(this.walletApiClient.calculateCurrencyConversion(
+            request.getFromAmount(),
+            request.getFromCurrency(),
+            request.getToAmount(),
+            request.getToCurrency(),
+            request.getAccountNumber()
+        ));
+    }
+
+    public Task<CurrencyConversionResult> convertCurrency(ConvertCurrencyCurrencyRequest request) {
+        return this.execute(this.walletApiClient.convertCurrency(request));
+    }
+
     public Task<User> getUser() {
         return this.execute(this.walletApiClient.getUser());
     }

@@ -42,6 +42,19 @@ public interface WalletApiClient {
     @GET("client/locations")
     Call<List<Location>> getClientLocations();
 
+    // Currency Conversion
+    @GET("currency-conversion")
+    Call<CurrencyConversionCalculation> calculateCurrencyConversion(
+        @Query("from_amount") Integer fromAmount,
+        @Query("from_currency") String fromCurrency,
+        @Query("to_amount") Integer toAmount,
+        @Query("to_currency") String toCurrency,
+        @Query("account_number") String accountNumber
+    );
+
+    @POST("currency-conversion")
+    Call<CurrencyConversionResult> convertCurrency(@Body ConvertCurrencyCurrencyRequest request);
+
     // User endpoint
     @GET("user/me")
     Call<User> getUser();
