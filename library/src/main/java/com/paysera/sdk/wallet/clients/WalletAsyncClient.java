@@ -71,6 +71,10 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.getUser());
     }
 
+    public Task<Questionnaire> getUserQuestionnaire(Integer userId) {
+        return this.execute(this.walletApiClient.getUserQuestionnaire(userId));
+    }
+
     public Task<JWTTokenResponse> getJWTToken(JWTScope scope) {
         return this.execute(this.walletApiClient.getJWTToken(scope));
     }

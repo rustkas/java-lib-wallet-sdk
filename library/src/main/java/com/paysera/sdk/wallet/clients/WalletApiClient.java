@@ -59,6 +59,9 @@ public interface WalletApiClient {
     @GET("user/me")
     Call<User> getUser();
 
+    @GET("user/{id}/questionnaire")
+    Call<Questionnaire> getUserQuestionnaire(@Path("id") Integer userId);
+
     @GET("user/{id}")
     Call<User> getUser(
         @Path("id") Integer userId
