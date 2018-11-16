@@ -6,6 +6,7 @@ import java.util.List;
 
 public class WalletApiException extends WalletSdkException {
     public static final String ERROR_CODE_INVALID_GRANT = "invalid_grant";
+    public static final String ERROR_CODE_INVALID_TIMESTAMP = "invalid_timestamp";
     public static final String ERROR_DESCRIPTION_EXPIRED_TOKEN = "Token has expired";
     public static final String ERROR_CODE_RATE_LIMIT_EXCEEDED = "rate_limit_exceeded";
     public static final String ERROR_CODE_PHONE_ALREADY_ASSIGNED = "phone_already_assigned";
@@ -73,7 +74,8 @@ public class WalletApiException extends WalletSdkException {
         return
                !this.isNetworkError()
             && this.errorDescription.contains(WalletApiException.ERROR_DESCRIPTION_TIMESTAMP_IS_IN_THE_FUTURE)
-            || this.errorDescription.equals(WalletApiException.ERROR_DESCRIPTION_TIMESTAMP_LIFETIME_EXCEEDED);
+            || this.errorDescription.equals(WalletApiException.ERROR_DESCRIPTION_TIMESTAMP_LIFETIME_EXCEEDED)
+            || this.errorCode.equals(WalletApiException.ERROR_CODE_INVALID_TIMESTAMP);
     }
 
     public Boolean isAccessTokenExpiredError() {
