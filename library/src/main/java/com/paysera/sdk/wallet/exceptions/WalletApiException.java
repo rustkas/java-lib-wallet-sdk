@@ -154,4 +154,14 @@ public class WalletApiException extends WalletSdkException {
             && this.errorCode.equals(WalletApiException.ERROR_CODE_PASSWORD_TOO_RISKY);
     }
 
+    @Override
+    public String toString() {
+        String message = String.format("code=%s, desc=%s, properties=%s, statusCode=%d",
+            errorCode,
+            errorDescription,
+            errorProperties,
+            statusCode
+        );
+        return super.toString() + message;
+    }
 }

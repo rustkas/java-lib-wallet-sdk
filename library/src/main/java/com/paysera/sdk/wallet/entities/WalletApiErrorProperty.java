@@ -24,4 +24,9 @@ public class WalletApiErrorProperty {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return String.format("code=%s, desc=%s", code, description);
+    }
 }
