@@ -23,6 +23,7 @@ public class AccountInformation {
     private Integer userId;
     private String type;
     private List<String> ibans = new ArrayList<>();
+    private AccountFlags flags;
 
     public String getDescription() {
         return description;
@@ -86,5 +87,13 @@ public class AccountInformation {
 
     public void setOwnerType(String ownerType) {
         this.ownerType = ownerType;
+    }
+
+    public AccountFlags getFlags() {
+        return flags;
+    }
+
+    public void setFlags(AccountFlags flags) {
+        this.flags = flags;
     }
 }

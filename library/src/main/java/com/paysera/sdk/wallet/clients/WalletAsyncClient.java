@@ -71,6 +71,10 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.getUser());
     }
 
+    public Task<List<Wallet>> getUserWallets() {
+        return this.execute(this.walletApiClient.getUserWallets());
+    }
+
     public Task<Questionnaire> getUserQuestionnaire(Integer userId) {
         return this.execute(this.walletApiClient.getUserQuestionnaire(userId));
     }
