@@ -208,7 +208,8 @@ public interface WalletApiClient {
         @Query("email") String emailList,
         @Query("phone") String phoneList,
         @Query("email_hash") String emailHashList,
-        @Query("phone_hash") String phoneHashList
+        @Query("phone_hash") String phoneHashList,
+        @Query("limit") Integer limit
     );
 
     @GET("wallet/{id}/statements")

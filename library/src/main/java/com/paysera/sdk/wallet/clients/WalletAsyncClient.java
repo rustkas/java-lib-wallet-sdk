@@ -351,7 +351,8 @@ public class WalletAsyncClient extends BaseAsyncClient {
             StringHelper.listToString(walletsFilter.getEmailList(), ","),
             StringHelper.listToString(walletsFilter.getPhoneList(), ","),
             StringHelper.listToString(walletsFilter.getEmailHashList(), ","),
-            StringHelper.listToString(walletsFilter.getPhoneHashList(), ",")));
+            StringHelper.listToString(walletsFilter.getPhoneHashList(), ","),
+            walletsFilter.getLimit()));
     }
 
     public Task<List<LocationCategory>> getLocationCategories(String locale) {
