@@ -20,15 +20,15 @@ public class AccountInformation {
 
     @SerializedName("number")
     private String accountNumber;
-    private String ownerDisplayName;
-    private String description;
-    private String ownerTitle;
-    private String ownerType;
     private Integer userId;
+    private String ownerType;
+    private String ownerTitle;
+    private String ownerDisplayName;
     private String type;
     private List<String> ibans = new ArrayList<>();
     private AccountFlags flags;
     private String status;
+    private String description;
 
     public String getDescription() {
         return description;

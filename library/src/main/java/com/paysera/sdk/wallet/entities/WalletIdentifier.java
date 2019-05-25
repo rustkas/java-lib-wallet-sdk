@@ -4,6 +4,7 @@ package com.paysera.sdk.wallet.entities;
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class WalletIdentifier {
+    private Integer id;
     private Wallet wallet;
     private String email;
     private String phone;
@@ -36,5 +37,13 @@ public class WalletIdentifier {
         return this.wallet == null
             && this.email == null
             && this.phone == null;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

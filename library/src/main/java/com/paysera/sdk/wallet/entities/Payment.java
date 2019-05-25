@@ -2,21 +2,19 @@ package com.paysera.sdk.wallet.entities;
 
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.helpers.MoneyHelper;
+import org.joda.money.CurrencyUnit;
+import org.joda.money.Money;
 
 import java.math.BigDecimal;
 import java.util.Date;
-
-import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.WalletIdentifierAdapter;
-import org.joda.money.CurrencyUnit;
-import org.joda.money.Money;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class Payment {
 
-    @JsonAdapter(WalletIdentifierAdapter.class)
     @SerializedName("beneficiary")
     private WalletIdentifier beneficiaryIdentifier;
     @JsonAdapter(DateUnixTimestampSecondsAdapter.class)
@@ -25,6 +23,7 @@ public class Payment {
     private Date createdAt;
     private Integer price;
     private String currency;
+    private Integer cashback;
     private Integer id;
     private String transactionKey;
     private String status;
@@ -32,6 +31,19 @@ public class Payment {
     private boolean cancelable;
     @SerializedName("password")
     private PaymentPassword paymentPassword;
+
+    public Money getCashbackMoney() {
+        if (cashback != null) {
+            return MoneyHelper.createFromCents(this.currency, this.cashback);
+        } else {
+            return null;
+        }
+    }
+
+    public Payment setCashback(Integer cashback) {
+        this.cashback = cashback;
+        return this;
+    }
 
     public Payment setCancelable(boolean cancelable) {
         this.cancelable = cancelable;
@@ -66,10 +78,7 @@ public class Payment {
     }
 
     public Money getPriceMoney() {
-        return Money.of(
-            CurrencyUnit.of(this.currency),
-            new BigDecimal(this.price).divide(new BigDecimal(100))
-        );
+        return MoneyHelper.createFromCents(this.currency, this.price);
     }
 
     public Integer getId() {

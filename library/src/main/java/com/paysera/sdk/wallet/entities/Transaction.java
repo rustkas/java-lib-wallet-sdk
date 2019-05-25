@@ -9,6 +9,7 @@ import java.util.List;
 public class Transaction {
 
     private String transactionKey;
+    private Boolean validForPaymentCardDebit;
     private List<Payment> payments = new ArrayList<>();
     private Project project;
     private boolean autoConfirm;
@@ -84,5 +85,13 @@ public class Transaction {
     public Transaction setProject(Project project) {
         this.project = project;
         return this;
+    }
+
+    public Boolean getValidForPaymentCardDebit() {
+        return validForPaymentCardDebit;
+    }
+
+    public void setValidForPaymentCardDebit(Boolean validForPaymentCardDebit) {
+        this.validForPaymentCardDebit = validForPaymentCardDebit;
     }
 }
