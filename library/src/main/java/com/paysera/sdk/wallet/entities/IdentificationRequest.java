@@ -61,7 +61,7 @@ public class IdentificationRequest {
         return this.status.equals(STATUS_REVIEWED);
     }
 
-    public void setFacePhotoDocument(facePhotoDocument: FaceDocument) {
+    public void setFacePhotoDocument(FaceDocument facePhotoDocument) {
         this.facePhotoDocument = facePhotoDocument;
     }
 
