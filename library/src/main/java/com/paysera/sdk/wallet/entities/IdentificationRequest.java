@@ -17,6 +17,7 @@ public class IdentificationRequest {
     private Integer id;
     private Integer userId;
     private String status;
+    private FaceDocument facePhotoDocument;
     @SerializedName("identity_documents")
     private List<IdentityDocument> identityDocumentList = new ArrayList<>();
 
@@ -58,6 +59,14 @@ public class IdentificationRequest {
 
     public boolean isReviewed() {
         return this.status.equals(STATUS_REVIEWED);
+    }
+
+    public void setFacePhotoDocument(facePhotoDocument: FaceDocument) {
+        this.facePhotoDocument = facePhotoDocument;
+    }
+
+    public FaceDocument getFacePhotoDocument() {
+        return this.facePhotoDocument;
     }
 
     public List<IdentityDocument> getIdentityDocumentList() {
