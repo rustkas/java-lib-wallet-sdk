@@ -3,9 +3,7 @@ package com.paysera.sdk.wallet.entities;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
-import com.paysera.sdk.wallet.adapters.WalletIdentifierAdapter;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
-import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
 
 import java.math.BigDecimal;
@@ -15,8 +13,6 @@ import java.util.Date;
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
  */
 public class Payment {
-
-    @JsonAdapter(WalletIdentifierAdapter.class)
     @SerializedName("beneficiary")
     private WalletIdentifier beneficiaryIdentifier;
     @JsonAdapter(DateUnixTimestampSecondsAdapter.class)

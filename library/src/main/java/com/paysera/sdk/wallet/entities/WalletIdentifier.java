@@ -5,9 +5,11 @@ package com.paysera.sdk.wallet.entities;
  */
 public class WalletIdentifier {
     private Integer id;
-    private Wallet wallet;
     private String email;
     private String phone;
+
+    // Only for response. Used with extended fields.
+    private Wallet wallet;
 
     public Wallet getWallet() {
         return wallet;
@@ -34,7 +36,7 @@ public class WalletIdentifier {
     }
 
     public boolean isEmpty() {
-        return this.wallet == null
+        return this.id == null
             && this.email == null
             && this.phone == null;
     }

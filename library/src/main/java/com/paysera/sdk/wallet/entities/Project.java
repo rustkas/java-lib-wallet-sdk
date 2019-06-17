@@ -7,6 +7,9 @@ public class Project {
     private Integer id;
     private String title;
     private String description;
+    private Integer walletId;
+
+    // Only in Response. Used with extended fields.
     private Wallet wallet;
 
     public Integer getId() {
@@ -39,5 +42,13 @@ public class Project {
 
     public void setWallet(Wallet wallet) {
         this.wallet = wallet;
+    }
+
+    public Integer getWalletId() {
+        return walletId;
+    }
+
+    public void setWalletId(Integer walletId) {
+        this.walletId = walletId;
     }
 }
