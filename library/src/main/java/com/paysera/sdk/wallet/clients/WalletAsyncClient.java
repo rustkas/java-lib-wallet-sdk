@@ -204,7 +204,6 @@ public class WalletAsyncClient extends BaseAsyncClient {
     }
 
     public Task<User> assignEmail(
-        Integer userId,
         String email,
         UserEmailConfirmationParameters parameters
     ) {
@@ -213,7 +212,6 @@ public class WalletAsyncClient extends BaseAsyncClient {
     }
 
     public Task<User> assignEmail(
-        Integer userId,
         String email
     ) {
         AssignEmailRequest assignEmailRequest = new AssignEmailRequest(email);
@@ -232,7 +230,6 @@ public class WalletAsyncClient extends BaseAsyncClient {
     }
 
     public Task<User> confirmEmail(
-        Integer userId,
         String code
     ) {
         ConfirmEmailRequest confirmEmailRequest = new ConfirmEmailRequest(code);
