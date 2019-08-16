@@ -8,6 +8,7 @@ public class TransferBeneficiary {
     private TransferBeneficiaryPayzaAccount payzaAccount;
     private TransferBeneficiaryTaxAccount taxAccount;
     private TransferBeneficiaryPayseraAccount payseraAccount;
+    private TransferIdentifiers identifiers;
 
     public Boolean isBankAccount() {
         return bankAccount != null;
@@ -83,5 +84,13 @@ public class TransferBeneficiary {
 
     public void setPayseraAccount(TransferBeneficiaryPayseraAccount payseraAccount) {
         this.payseraAccount = payseraAccount;
+    }
+
+    public TransferIdentifiers getIdentifiers() {
+        return identifiers;
+    }
+
+    public void setIdentifiers(TransferIdentifiers identifiers) {
+        this.identifiers = identifiers;
     }
 }
