@@ -10,6 +10,7 @@ public class Transaction {
 
     private String transactionKey;
     private Boolean validForPaymentCardDebit;
+    private String redirectUri;
     private List<Payment> payments = new ArrayList<>();
     private Project project;
     private boolean autoConfirm;
@@ -93,5 +94,13 @@ public class Transaction {
 
     public void setValidForPaymentCardDebit(Boolean validForPaymentCardDebit) {
         this.validForPaymentCardDebit = validForPaymentCardDebit;
+    }
+
+    public String getRedirectUri() {
+        return redirectUri;
+    }
+
+    public void setRedirectUri(String redirectUri) {
+        this.redirectUri = redirectUri;
     }
 }
