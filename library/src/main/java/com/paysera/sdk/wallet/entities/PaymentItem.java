@@ -1,16 +1,14 @@
-package com.paysera.sdk.wallet.entities.pos;
+package com.paysera.sdk.wallet.entities;
 
-import com.google.gson.annotations.SerializedName;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
 import org.joda.money.Money;
 
-public class Item {
+public class PaymentItem {
     private String title;
-    private long price;
+    private Long price;
     private String currency;
-    private int quantity;
-    @SerializedName("total_price")
-    private long totalPrice;
+    private Integer quantity;
+    private Long totalPrice;
 
     public String getTitle() {
         return title;

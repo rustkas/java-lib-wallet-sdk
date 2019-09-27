@@ -1,5 +1,7 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,10 @@ import java.util.List;
  */
 public class Transaction {
 
+    private int id;
+    @SerializedName("transaction_key")
     private String transactionKey;
+    @SerializedName("valid_for_payment_card_debit")
     private Boolean validForPaymentCardDebit;
     private String redirectUri;
     private List<Payment> payments = new ArrayList<>();
@@ -17,6 +22,7 @@ public class Transaction {
     private Integer locationId;
     private Integer projectId;
     private String status;
+    private String type;
 
     public String getStatus() {
 
@@ -102,5 +108,13 @@ public class Transaction {
 
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
     }
 }

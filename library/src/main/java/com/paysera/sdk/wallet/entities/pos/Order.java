@@ -1,14 +1,17 @@
 package com.paysera.sdk.wallet.entities.pos;
 
-import com.google.gson.annotations.SerializedName;
+import com.paysera.sdk.wallet.entities.Transaction;
 
 public class Order {
-    private int id;
-    @SerializedName("transaction_key")
+
+    public static final String STATUS_PENDING = "pending";
+    public static final String STATUS_RESERVED = "reserved";
+    public static final String STATUS_CONFIRMED = "confirmed";
+    public static final String STATUS_CLOSED = "closed";
+
+    private Integer id;
     private String transactionKey;
-    @SerializedName("status")
-    private Status status;
-    @SerializedName("user_id")
+    private String status;
     private String userId;
     private Transaction transaction;
 
@@ -20,7 +23,7 @@ public class Order {
         return transactionKey;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -30,16 +33,5 @@ public class Order {
 
     public Transaction getTransaction() {
         return transaction;
-    }
-
-    public enum Status {
-        @SerializedName("pending")
-        PENDING,
-        @SerializedName("reserved")
-        RESERVED,
-        @SerializedName("confirmed")
-        CONFIRMED,
-        @SerializedName("closed")
-        CLOSED
     }
 }

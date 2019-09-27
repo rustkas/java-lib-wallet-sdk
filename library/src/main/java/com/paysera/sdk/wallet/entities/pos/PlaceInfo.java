@@ -1,14 +1,10 @@
 package com.paysera.sdk.wallet.entities.pos;
 
-import com.google.gson.annotations.SerializedName;
-
 public class PlaceInfo {
     private String title;
     private String description;
     private String address;
-    @SerializedName("location_id")
-    private int locationId;
-    @SerializedName("logo_uri")
+    private Integer locationId;
     private String logoUri;
 
     public String getTitle() {
@@ -31,7 +27,7 @@ public class PlaceInfo {
         return logoUri;
     }
 
-    public String details() {
+    public String getPlaceDetails() {
         return description + "\n" + address;
     }
 }

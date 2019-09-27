@@ -1,16 +1,17 @@
 package com.paysera.sdk.wallet.entities.pos;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Spot {
-    private long id;
-    @SerializedName("status")
-    private Status status;
+
+    public static final String STATUS_WAITING = "waiting";
+    public static final String STATUS_OPEN = "open";
+    public static final String STATUS_CLOSED = "closed";
+
+    private Long id;
+    private String status;
     private String identifier;
-    @SerializedName("place_info")
     private PlaceInfo placeInfo;
     private List<Order> orders;
 
@@ -18,7 +19,7 @@ public class Spot {
         return id;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
@@ -37,20 +38,11 @@ public class Spot {
     public List<Order> getPendingOrders() {
         List<Order> pendingOrders = new ArrayList<>();
         for (Order order : this.orders) {
-            if (order.getStatus() == Order.Status.PENDING) {
+            if (order.getStatus() == Order.STATUS_PENDING) {
                 pendingOrders.add(order);
             }
         }
 
         return pendingOrders;
-    }
-
-    public enum Status {
-        @SerializedName("closed")
-        CLOSED,
-        @SerializedName("waiting")
-        WAITING,
-        @SerializedName("open")
-        OPEN
     }
 }
