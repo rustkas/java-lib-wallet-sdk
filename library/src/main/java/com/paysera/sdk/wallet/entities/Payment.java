@@ -8,6 +8,7 @@ import org.joda.money.Money;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
@@ -29,6 +30,7 @@ public class Payment {
     private boolean cancelable;
     @SerializedName("password")
     private PaymentPassword paymentPassword;
+    private List<PaymentItem> items;
 
     public Money getCashbackMoney() {
         if (cashback != null) {
@@ -148,5 +150,9 @@ public class Payment {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public List<PaymentItem> getItems() {
+        return items;
     }
 }

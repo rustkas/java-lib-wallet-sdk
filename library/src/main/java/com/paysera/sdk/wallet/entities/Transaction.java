@@ -8,18 +8,23 @@ import java.util.List;
  */
 public class Transaction {
 
+    private Integer id;
     private String transactionKey;
     private Boolean validForPaymentCardDebit;
     private String redirectUri;
     private List<Payment> payments = new ArrayList<>();
     private Project project;
-    private boolean autoConfirm;
+    private Boolean autoConfirm;
     private Integer locationId;
     private Integer projectId;
     private String status;
+    private String type;
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getStatus() {
-
         return status;
     }
 
@@ -46,12 +51,12 @@ public class Transaction {
         return this;
     }
 
-    public Transaction setAutoConfirm(boolean autoConfirm) {
+    public Transaction setAutoConfirm(Boolean autoConfirm) {
         this.autoConfirm = autoConfirm;
         return this;
     }
 
-    public boolean isAutoConfirm() {
+    public Boolean isAutoConfirm() {
         return autoConfirm;
     }
 
@@ -102,5 +107,9 @@ public class Transaction {
 
     public void setRedirectUri(String redirectUri) {
         this.redirectUri = redirectUri;
+    }
+
+    public String getType() {
+        return type;
     }
 }
