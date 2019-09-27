@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
 import org.joda.money.Money;
 
-public final class Item {
+public class Item {
     private String title;
     private long price;
     private String currency;

@@ -3,11 +3,13 @@ package com.paysera.sdk.wallet.entities;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.paysera.sdk.wallet.adapters.DateUnixTimestampSecondsAdapter;
+import com.paysera.sdk.wallet.entities.pos.Item;
 import com.paysera.sdk.wallet.helpers.MoneyHelper;
 import org.joda.money.Money;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Vytautas Gimbutas <v.gimbutas@evp.lt>
@@ -29,6 +31,7 @@ public class Payment {
     private boolean cancelable;
     @SerializedName("password")
     private PaymentPassword paymentPassword;
+    private List<Item> items;
 
     public Money getCashbackMoney() {
         if (cashback != null) {
@@ -148,5 +151,9 @@ public class Payment {
 
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }
