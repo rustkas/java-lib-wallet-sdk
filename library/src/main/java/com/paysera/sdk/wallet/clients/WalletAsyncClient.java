@@ -9,6 +9,7 @@ import com.paysera.sdk.wallet.entities.client.Client;
 import com.paysera.sdk.wallet.entities.confirmations.Confirmation;
 import com.paysera.sdk.wallet.entities.locations.Location;
 import com.paysera.sdk.wallet.entities.locations.LocationCategory;
+import com.paysera.sdk.wallet.entities.pos.Spot;
 import com.paysera.sdk.wallet.entities.requests.*;
 import com.paysera.sdk.wallet.entities.transfer.Transfer;
 import com.paysera.sdk.wallet.entities.transfer.TransferPassword;
@@ -559,4 +560,7 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.reserveTransaction(transactionKey, reserveTransactionRequest));
     }
 
+    public Task<Spot> getSpotById(long spotId, String fields) {
+        return this.execute(this.walletApiClient.getSpotById(spotId, fields));
+    }
 }
