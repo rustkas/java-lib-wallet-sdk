@@ -15,7 +15,7 @@ public class Order {
     private String userId;
     private Transaction transaction;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

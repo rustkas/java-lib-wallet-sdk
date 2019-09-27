@@ -14,7 +14,7 @@ public class PaymentItem {
         return title;
     }
 
-    public double getPrice() {
+    public Long getPrice() {
         return price;
     }
 
@@ -22,11 +22,11 @@ public class PaymentItem {
         return currency;
     }
 
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public double getTotalPrice() {
+    public Long getTotalPrice() {
         return totalPrice;
     }
 

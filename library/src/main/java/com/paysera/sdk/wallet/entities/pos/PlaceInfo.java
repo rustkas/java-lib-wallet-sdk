@@ -19,7 +19,7 @@ public class PlaceInfo {
         return address;
     }
 
-    public int getLocationId() {
+    public Integer getLocationId() {
         return locationId;
     }
 

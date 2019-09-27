@@ -15,7 +15,7 @@ public class Spot {
     private PlaceInfo placeInfo;
     private List<Order> orders;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
