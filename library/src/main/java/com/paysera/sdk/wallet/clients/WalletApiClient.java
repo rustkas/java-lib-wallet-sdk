@@ -436,5 +436,5 @@ public interface WalletApiClient {
     Call<Spot> getSpotById(@Path("spotId") Long spotId, @Query("fields") String fields);
 
     @PUT("spot/{spotId}/check-in")
-    Call<Spot> spotCheckIn(@Path("spotId") Long spotId, @Query("fields") String fields);
+    Call<Spot> checkIntoSpot(@Path("spotId") Long spotId, @Query("fields") String fields);
 }

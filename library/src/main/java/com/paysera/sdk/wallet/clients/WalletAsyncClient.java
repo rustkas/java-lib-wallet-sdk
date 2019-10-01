@@ -564,7 +564,7 @@ public class WalletAsyncClient extends BaseAsyncClient {
         return this.execute(this.walletApiClient.getSpotById(spotId, fields));
     }
 
-    public Task<Spot> spotCheckIn(Long spotId, String fields) {
-        return this.execute(this.walletApiClient.spotCheckIn(spotId, fields));
+    public Task<Spot> checkIntoSpot(Long spotId, String fields) {
+        return this.execute(this.walletApiClient.checkIntoSpot(spotId, fields));
     }
 }
