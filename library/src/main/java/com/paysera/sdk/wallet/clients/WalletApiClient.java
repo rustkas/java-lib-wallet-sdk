@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface WalletApiClient {
+
+    String SPOT_FIELDS = "*,orders.transaction,orders.transaction.payments.beneficiary.wallet,orders.transaction.project,orders.transaction.project.wallet";
+
     // Misc endpoints
     @GET("server")
     Call<ServerInformation> getServerInformation();
@@ -430,5 +433,8 @@ public interface WalletApiClient {
     Call<AuthTokenResponse> createAuthToken();
 
     @GET("spot/{spotId}")
-    Call<Spot> getSpotById(@Path("spotId") long spotId, @Query("fields") String fields);
+    Call<Spot> getSpotById(@Path("spotId") Long spotId, @Query("fields") String fields);
+
+    @PUT("spot/{spotId}/check-in")
+    Call<Spot> spotCheckIn(@Path("spotId") Long spotId, @Query("fields") String fields);
 }

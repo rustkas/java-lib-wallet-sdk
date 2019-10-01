@@ -27,7 +27,7 @@ public class Payment {
     private String transactionKey;
     private String status;
     private String description;
-    private boolean cancelable;
+    private Boolean cancelable;
     @SerializedName("password")
     private PaymentPassword paymentPassword;
     private List<PaymentItem> items;
@@ -38,6 +38,10 @@ public class Payment {
         } else {
             return null;
         }
+    }
+
+    public Integer getCashback() {
+        return cashback;
     }
 
     public Payment setCashback(Integer cashback) {
@@ -67,7 +71,7 @@ public class Payment {
         this.price = price;
     }
 
-    private Integer getPrice() {
+    public Integer getPrice() {
         return this.price;
     }
 
