@@ -18,8 +18,6 @@ import java.util.Map;
 
 public interface WalletApiClient {
 
-    String SPOT_FIELDS = "*,orders.transaction,orders.transaction.payments.beneficiary.wallet,orders.transaction.project,orders.transaction.project.wallet";
-
     // Misc endpoints
     @GET("server")
     Call<ServerInformation> getServerInformation();
