@@ -1,6 +1,11 @@
 package com.paysera.sdk.wallet.entities;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.paysera.sdk.wallet.adapters.DateAdapter;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class User {
@@ -14,6 +19,9 @@ public class User {
     private UserIdentity identity;
     private String identificationLevel;
     private String calculatedLevel;
+    @JsonAdapter(DateAdapter.class)
+    @SerializedName("dob")
+    private Date dateOfBirth;
 
     public Integer getId() {
         return id;
@@ -95,5 +103,7 @@ public class User {
         this.calculatedLevel = calculatedLevel;
     }
 
-
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 }
