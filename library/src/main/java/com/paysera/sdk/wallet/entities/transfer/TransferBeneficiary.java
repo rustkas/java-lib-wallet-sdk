@@ -9,6 +9,8 @@ public class TransferBeneficiary {
     private TransferBeneficiaryTaxAccount taxAccount;
     private TransferBeneficiaryPayseraAccount payseraAccount;
     private TransferIdentifiers identifiers;
+    private TransferBeneficiaryAddress address;
+    private TransferBeneficiaryAdditionalInformation additionalInformation;
 
     public Boolean isBankAccount() {
         return bankAccount != null;
@@ -92,5 +94,21 @@ public class TransferBeneficiary {
 
     public void setIdentifiers(TransferIdentifiers identifiers) {
         this.identifiers = identifiers;
+    }
+
+    public TransferBeneficiaryAddress getAddress() {
+        return address;
+    }
+
+    public void setAddress(TransferBeneficiaryAddress address) {
+        this.address = address;
+    }
+
+    public TransferBeneficiaryAdditionalInformation getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(TransferBeneficiaryAdditionalInformation additionalInformation) {
+        this.additionalInformation = additionalInformation;
     }
 }

@@ -1,7 +1,16 @@
 package com.paysera.sdk.wallet.entities.transfer;
 
-public class TransferBeneficiaryBankAccountBankAddress {
+public class TransferBeneficiaryAddress {
+    private String addressLine;
     private String countryCode;
+
+    public String getAddressLine() {
+        return addressLine;
+    }
+
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
+    }
 
     public String getCountryCode() {
         return countryCode;

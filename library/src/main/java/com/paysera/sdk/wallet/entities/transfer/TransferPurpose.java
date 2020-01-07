@@ -3,6 +3,7 @@ package com.paysera.sdk.wallet.entities.transfer;
 public class TransferPurpose {
     private String details;
     private String reference;
+    private String purposeCode;
     private TransferPurposeDetailsOptions detailsOptions;
 
     public String getDetails() {
@@ -19,6 +20,14 @@ public class TransferPurpose {
 
     public void setReference(String reference) {
         this.reference = reference;
+    }
+
+    public String getPurposeCode() {
+        return purposeCode;
+    }
+
+    public void setPurposeCode(String purposeCode) {
+        this.purposeCode = purposeCode;
     }
 
     public TransferPurposeDetailsOptions getDetailsOptions() {
