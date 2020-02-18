@@ -382,7 +382,9 @@ public interface WalletApiClient {
     @GET("transfers")
     Call<MetadataAwareResponse<Transfer>> getTransfers(
         @Query("credit_account_number") String creditAccountNumber,
-        @Query("statuses[]") List<String> statuses
+        @Query("statuses[]") List<String> statuses,
+        @Query("offset") Integer offset,
+        @Query("limit") Integer limit
     );
 
     @PUT("transfers/{transferId}/provide-password")

@@ -486,7 +486,7 @@ public class WalletAsyncClient extends BaseAsyncClient {
     }
 
     public Task<MetadataAwareResponse<Transfer>> getTransfers(TransfersFilter filter) {
-        return this.execute(this.walletApiClient.getTransfers(filter.getCreditAccountNumber(), filter.getStatuses()));
+        return this.execute(this.walletApiClient.getTransfers(filter.getCreditAccountNumber(), filter.getStatuses(), filter.getOffset(), filter.getLimit()));
     }
 
     public Task<Transfer> provideTransferPassword(Long transferId, TransferPassword password) {
