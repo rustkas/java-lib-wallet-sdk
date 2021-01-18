@@ -618,7 +618,7 @@ public class WalletAsyncClient extends BaseAsyncClient {
         ));
     }
 
-    public Task<Void> submitIdentificationRequest(Long identificationRequestId) {
+    public Task<IdentificationRequest> submitIdentificationRequest(Long identificationRequestId) {
         return this.execute(this.walletApiClient.submitIdentificationRequest(identificationRequestId));
     }
 

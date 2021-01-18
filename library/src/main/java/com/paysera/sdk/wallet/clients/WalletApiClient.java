@@ -477,7 +477,9 @@ public interface WalletApiClient {
     );
 
     @PUT("identification-request/{identificationRequestId}/submit")
-    Call<Void> submitIdentificationRequest(@Path("identificationRequestId") Long identificationRequestId);
+    Call<IdentificationRequest> submitIdentificationRequest(
+        @Path("identificationRequestId") Long identificationRequestId
+    );
 
     @GET("generator/{id}")
     Call<Generator> getGenerator(@Path("id") Integer generatorId);
@@ -490,6 +492,7 @@ public interface WalletApiClient {
 
     @PUT("subscriber/{subscriberId}")
     Call<NotificationSubscriber> editNotificationsSubscriber(
-            @Path("subscriberId") Integer subscriberId,
-            @Body NotificationSubscriber notificationSubscriber);
+        @Path("subscriberId") Integer subscriberId,
+        @Body NotificationSubscriber notificationSubscriber
+    );
 }
