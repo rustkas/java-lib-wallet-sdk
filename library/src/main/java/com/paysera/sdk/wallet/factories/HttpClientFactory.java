@@ -17,16 +17,19 @@ public class HttpClientFactory {
     private TimestampProvider timestampProvider;
     private RequestSigner requestSigner;
     private Logger logger;
+    private String locale;
     private List<String> certifiedHosts;
 
     public HttpClientFactory(
         RequestSigner requestSigner,
         Logger logger,
+        String locale,
         TimestampProvider timestampProvider,
         List<String> certifiedHosts
     ) {
         this.requestSigner = requestSigner;
         this.logger = logger;
+        this.locale = locale;
         this.timestampProvider = timestampProvider;
         this.certifiedHosts = certifiedHosts;
     }
@@ -87,12 +90,15 @@ public class HttpClientFactory {
                         parameters
                     );
 
-                    okhttp3.Request request = original.newBuilder()
-                        .header("User-Agent", userAgent)
-                        .header("Authorization", signature)
-                        .build();
+                    Request.Builder builder = original.newBuilder();
+                    if (locale != null) {
+                        builder.header("Accept-Language", locale);
+                    }
 
-                    return chain.proceed(request);
+                    builder.header("User-Agent", userAgent);
+                    builder.header("Authorization", signature);
+
+                    return chain.proceed(builder.build());
                 } catch (Exception exception) {
                     if (logger != null) {
                         StringWriter errors = new StringWriter();
